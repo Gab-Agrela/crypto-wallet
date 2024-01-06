@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { styled } from "styled-components";
 
 interface TApiData {
   id?: number;
@@ -43,7 +44,11 @@ const TBodyTr = ({ cmc_rank, name, quote }: TApiData): ReactElement => {
           currency: "USD",
         })}
       </td>
-      <td>{quote.USD.percent_change_24h.toFixed(2) + "%"}</td>
+      <td
+        className={quote.USD.percent_change_24h >= 0 ? "positive" : "negative"}
+      >
+        {quote.USD.percent_change_24h.toFixed(2) + "%"}
+      </td>
       <td>
         {quote.USD.market_cap.toLocaleString("en-US", {
           style: "currency",
@@ -55,7 +60,25 @@ const TBodyTr = ({ cmc_rank, name, quote }: TApiData): ReactElement => {
 };
 
 const TBody = ({ data }: { data: Array<TApiData> }): ReactElement => {
-  return <tbody>{data?.map((curr: TApiData) => TBodyTr(curr))}</tbody>;
+  return <Body>{data?.map((curr: TApiData) => TBodyTr(curr))}</Body>;
 };
 
+const Body = styled.tbody`
+  td {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+  @media (max-width: 700px) {
+    td {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  }
+  .positive {
+    color: green;
+  }
+  .negative {
+    color: red;
+  }
+`;
 export { TBody };
