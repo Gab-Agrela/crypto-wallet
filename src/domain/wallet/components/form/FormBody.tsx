@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
-import { data } from "../../../api/listingDataMock.json";
-import { RadioButtonContainer } from "./RadioButton";
+import { data } from "../../../../api/listingDataMock.json";
+import { RadioButtonContainer } from "./FormRadioButton";
 
 const Body = () => {
   return (

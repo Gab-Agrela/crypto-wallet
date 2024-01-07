@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { Header } from "./components/Header";
 import { Table } from "./components/Table";
 import { useState } from "react";
-import { Form } from "./Form/Form";
+import { Form } from "./components/form/Form";
 
 const Wallet = () => {
   const [visible, setVisible] = useState<boolean>(false);

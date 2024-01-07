@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { styled } from "styled-components";
 
-import { Header } from "./Header";
-import { Body } from "./Body";
+import { Header } from "./FormHeader";
+import { Body } from "./FormBody";
 import {
   PortfolioContext,
   TransactionType,
-} from "../../../context/PortfolioContext";
+} from "../../../../context/PortfolioContext";
 
 export type FormParamsType = {
   visible: boolean;
