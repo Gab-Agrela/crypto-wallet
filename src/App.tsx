@@ -4,16 +4,23 @@ import { styled } from "styled-components";
 import { Navbar } from "./commom/components/Navbar";
 import { Home } from "./domain/home/Home";
 import { Wallet } from "./domain/wallet/Wallet";
+import { useState } from "react";
+import { PortfolioContext, TransactionType } from "./context/PortfolioContext";
 
 function App() {
+  const [portfolio, setPortfolio] = useState<Array<TransactionType>>([]);
+  console.log(portfolio);
+
   return (
-    <Container>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="wallet" element={<Wallet />} />
-      </Routes>
-    </Container>
+    <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>
+      <Container>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="wallet" element={<Wallet />} />
+        </Routes>
+      </Container>
+    </PortfolioContext.Provider>
   );
 }
 
