@@ -31,7 +31,7 @@ const CriptoContainer = styled.div`
   width: fit-content;
   height: 70%;
   margin-top: 15px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   @media (max-width: 700px) {
     display: grid;
