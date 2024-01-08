@@ -18,14 +18,14 @@ const Form = ({ visible, setVisible }: FormParamsType) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = event.currentTarget.elements;
-    const [, currency, buy, , amount, quantity] = [...data].map(
+    const [, name, buy, , amount, price] = [...data].map(
       (d) => d as HTMLSelectElement | HTMLInputElement
     );
     const transaction: TransactionType = {
-      currency: currency.value,
+      name: name.value,
       operation: (buy as HTMLInputElement).checked ? "buy" : "sell",
       amount: Number(amount.value),
-      quantity: Number(quantity.value),
+      price: Number(price.value),
     };
     setPortfolio((prev) => [...prev, transaction]);
     setVisible(false);

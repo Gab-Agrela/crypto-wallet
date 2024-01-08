@@ -1,44 +1,18 @@
+import { useContext } from "react";
+
+import { PortfolioContext } from "../../../context/PortfolioContext";
+import { PortfolioTableContent } from "./PortfolioTableContent";
+import { data } from "../../../api/listingDataMock.json";
+
 const Table = () => {
+  const { portfolio } = useContext(PortfolioContext);
   return (
     <>
-      <table>
-        <thead>
-          <tr>
-            <th>Moeda</th>
-            <th>Qtd</th>
-            <th>Value</th>
-            <th>pl</th>
-            <th>%</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Link</td>
-            <td>3.32</td>
-            <td>$300</td>
-            <td>$132</td>
-            <td>+12%</td>
-            <td>$30.23</td>
-          </tr>
-          <tr>
-            <td>Link</td>
-            <td>3.32</td>
-            <td>$300</td>
-            <td>$132</td>
-            <td>+12%</td>
-            <td>$30.23</td>
-          </tr>
-          <tr>
-            <td>Link</td>
-            <td>3.32</td>
-            <td>$300</td>
-            <td>$132</td>
-            <td>+12%</td>
-            <td>$30.23</td>
-          </tr>
-        </tbody>
-      </table>
+      {portfolio.length ? (
+        <PortfolioTableContent portfolio={portfolio} data={data} />
+      ) : (
+        <p>No transcations found. Add a new transaction in the button above</p>
+      )}
     </>
   );
 };

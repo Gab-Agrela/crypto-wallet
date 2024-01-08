@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { styled } from "styled-components";
 
-interface TApiData {
+export type ApiDataType = {
   id?: number;
   name: string;
   symbol?: string;
@@ -31,9 +31,9 @@ interface TApiData {
       last_updated?: string;
     };
   };
-}
+};
 
-const TBodyTr = ({ cmc_rank, name, quote }: TApiData): ReactElement => {
+const TBodyTr = ({ cmc_rank, name, quote }: ApiDataType): ReactElement => {
   return (
     <tr key={cmc_rank}>
       <td>{cmc_rank}</td>
@@ -59,8 +59,8 @@ const TBodyTr = ({ cmc_rank, name, quote }: TApiData): ReactElement => {
   );
 };
 
-const TBody = ({ data }: { data: Array<TApiData> }): ReactElement => {
-  return <Body>{data?.map((curr: TApiData) => TBodyTr(curr))}</Body>;
+const TBody = ({ data }: { data: Array<ApiDataType> }): ReactElement => {
+  return <Body>{data?.map((curr: ApiDataType) => TBodyTr(curr))}</Body>;
 };
 
 const Body = styled.tbody`

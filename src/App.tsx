@@ -9,7 +9,6 @@ import { PortfolioContext, TransactionType } from "./context/PortfolioContext";
 
 function App() {
   const [portfolio, setPortfolio] = useState<Array<TransactionType>>([]);
-  console.log(portfolio);
 
   return (
     <PortfolioContext.Provider value={{ portfolio, setPortfolio }}>

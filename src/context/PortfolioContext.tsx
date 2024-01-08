@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
 export type TransactionType = {
-  currency: string;
+  name: string;
   operation: string;
   amount: number;
-  quantity: number;
+  price: number;
 };
 
 type PortfolioContextType = {
